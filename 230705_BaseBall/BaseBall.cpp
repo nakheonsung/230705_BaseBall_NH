@@ -59,7 +59,7 @@ public:
 						nStrike++;
 						break;
 					}
-					nBall;
+					nBall++;
 					break;
 				}
 			}

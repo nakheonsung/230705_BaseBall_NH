@@ -4,6 +4,13 @@ using namespace std;
 class Baseball
 {
 public:
+	bool isDuplicateNumber(const string& guessNumber)
+	{
+		return guessNumber[0] == guessNumber[1]
+			|| guessNumber[0] == guessNumber[2]
+			|| guessNumber[1] == guessNumber[2];
+	}
+
 	void guess (const string& guessNumber)
 	{
 		if (guessNumber.length() != 3)
@@ -19,9 +26,7 @@ public:
 			}
 		}
 
-		if (guessNumber[0] == guessNumber[1]
-			|| guessNumber[0] == guessNumber[2]
-			|| guessNumber[1] == guessNumber[2])
+		if (isDuplicateNumber(guessNumber))
 		{
 			throw length_error("Must not have the same number.");
 		}

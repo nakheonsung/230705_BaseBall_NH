@@ -24,8 +24,8 @@ public:
 
 TEST_F(BaseballFixture, ThrowExceptionWhenInvalid)
 {
-	Baseball game("123");
 	GuessResult result = game.guess("123");
+
 	assertIllegalArgument("12");
 	assertIllegalArgument("12s");
 	assertIllegalArgument("121");

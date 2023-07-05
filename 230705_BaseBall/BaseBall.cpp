@@ -12,6 +12,12 @@ struct GuessResult
 class Baseball
 {
 public:
+	explicit Baseball(const string& question)
+		: question(question)
+	{
+
+	}
+
 	bool isDuplicateNumber(const string& guessNumber)
 	{
 		return guessNumber[0] == guessNumber[1]
@@ -41,13 +47,11 @@ public:
 	GuessResult guess (const string& guessNumber)
 	{
 		assertIllegalArgument(guessNumber);
-		return { true, 3, 0 };
-	}
-
-	explicit Baseball(const string& question)
-		: question (question)
-	{
-		
+		if (guessNumber == question)
+		{
+			return { true, 3, 0 };
+		}
+		return { false, 0, 0 };
 	}
 
 private:

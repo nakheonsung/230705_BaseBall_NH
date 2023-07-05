@@ -51,7 +51,31 @@ public:
 		{
 			return { true, 3, 0 };
 		}
-		return { false, 0, 0 };
+		else
+		{
+			int nStrike = 0;
+			int nBall = 0;
+			for (int i=0; i<=2; i++)
+			{
+				for (int j = 0; j <= 2; j++)
+				{
+					if (guessNumber[i] == question[j])
+					{
+						if (i == j)
+						{
+							nStrike++;
+							break;
+						}
+						else
+						{
+							nBall;
+							break;
+						}
+					}
+				}
+			}
+			return { false, nStrike, nBall };
+		}		
 	}
 
 private:

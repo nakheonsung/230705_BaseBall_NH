@@ -11,7 +11,7 @@ public:
 			|| guessNumber[1] == guessNumber[2];
 	}
 
-	void guess (const string& guessNumber)
+	void assertIllegalArgument(const string& guessNumber)
 	{
 		if (guessNumber.length() != 3)
 		{
@@ -20,15 +20,18 @@ public:
 
 		for (char ch : guessNumber)
 		{
-			if (ch < '0' || ch > '9')
-			{
-				throw length_error("Must be Number.");
-			}
+			if (ch >= '0' && ch <= '9') continue;
+			throw length_error("Must be Number.");
 		}
 
 		if (isDuplicateNumber(guessNumber))
 		{
 			throw length_error("Must not have the same number.");
 		}
+	}
+
+	void guess (const string& guessNumber)
+	{
+		assertIllegalArgument(guessNumber);
 	}
 };
